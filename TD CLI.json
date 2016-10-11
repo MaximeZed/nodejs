@@ -1,0 +1,20 @@
+{
+  "name": "njs-302",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "bin": {
+    "mycommand": "./index.js"
+  },
+  "dependencies": {
+    "commander": "^2.9.0",
+    "fs": "0.0.1-security",
+    "inquirer": "^1.2.1",
+    "nodemailer": "^2.6.4",
+    "sqlite": "^2.2.0",
+    "sqlite3": "^3.1.6"
+  }
+}
