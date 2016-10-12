@@ -14,7 +14,7 @@ program
 	.option('-A, --adhesion', 'Insert un nouveau membre!')
 	.option('-S, --AffichageBDD', 'Affichage de la BDD!')
 	.option('-E, --ExtractMember','Extrait les données d un membre!')
-	.option ('-M, --mail','Extrait les données d un membre!')
+	.option ('-M, --mail','Envoi un mail des données de l utilisateur!')
 
 program.parse(process.argv)
 
