@@ -29,11 +29,6 @@ if (program.adhesion){
 
 
 
-// Récupération de l'information dans la BDD en fesant correspondre chaque élements de la table (nom, prenom, password) pour les informations stockés correspondent
-
-
-
-
 // Affichage de la BDD si l'administrateur souhaite voir l'ensemble de ses adhérents
 
 if (program.AffichageBDD){
@@ -50,12 +45,6 @@ if (program.AffichageBDD){
 	 
   
 }
-
-
-
-  
-  
-
 
 
 
@@ -80,16 +69,17 @@ if (program.mail){
 	var nom = tab[0]
 	var prenom = tab[1]
 	getPersonneInfo(prenom, nom).then((personne) => {
-console.log(personne+" "+nom+" "+prenom)
+		
+	    console.log(personne+" "+nom+" "+prenom)
 	    var Mtext = '\n\n\n\n\nName: '+nom+'\n\n prenom : '+prenom +"\n\n password:" + personne.password
 // create reusable transporter object using the default SMTP transport
-var transporter = nodemailer.createTransport('smtps://mailnodjs@gmail.com:123azerty@smtp.gmail.com');
+	    var transporter = nodemailer.createTransport('smtps://mailnodjs@gmail.com:123azerty@smtp.gmail.com');
 
 // setup e-mail data with unicode symbols
 var mailOptions = {
-    from: '"Fred Foo 👥" <foo@blurdybloop.com>', // sender address
+    from: '"serviceclient" <serviceclient@ent.com>', // sender address
     to: answer.pE, // list of receivers
-    subject: 'Hello ✔', // Subject lineS
+    subject: 'Voici vos identifiant', // Subject lineS
     text: Mtext// plaintext body
 };
 
@@ -125,7 +115,8 @@ db.serialize(function() {
 	// Fonction de dialogue ajout d'un membre
 	
 	function dialogValidation(){
-// Proposition à l'utilisateur de la console d'ajouté un membre
+
+		// Proposition à l'utilisateur de la console d'ajouté un membre
 	 inquirer.prompt([
 		{
 			type: 'list',
@@ -137,7 +128,8 @@ db.serialize(function() {
 			]
 		}
   ]).then((answer) => {
-// Si l'utilisateur clique "yes" le script va faire appel à la fonction add
+
+		 // Si l'utilisateur clique "yes" le script va faire appel à la fonction add
 	if (answer.option == 'yes'){
 
 	  add()
@@ -220,9 +212,9 @@ function add(){
 	 try{
 
 	getPersonneInfo(prenom, nom).then((personne) => {
-//console.log(personne)
+
 	    var text = '\n\n\n\n\nName: '+personne.nom+'\n\n prenom : '+personne.prenom +" password:" + personne.password
-//console.log(text)
+
 	    //Ecrire un fichier
 	    fs.writeFile(personne.nom+'_'+personne.prenom+'.txt', text,(err) =>{
 		  if (err) throw err
